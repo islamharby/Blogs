@@ -22,6 +22,13 @@ Route::get('/add','manageController@AddArticle');
 Route::post('/add','manageController@AddArticle');
 
 Route::get('/view','manageController@view');
+Route::get('/view/{id}','manageController@remove');
 
 Route::get('/read/{id}','manageController@read');
 Route::post('/read/{id}','manageController@read');
+
+
+Route::get('/edit/{id}','manageController@edit');
+Route::post('/edit/{id}','manageController@edit');
+
+

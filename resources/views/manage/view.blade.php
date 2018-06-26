@@ -7,10 +7,15 @@
             <tr>
                 <td> Title</td>
             </tr>
-
             @foreach($articles as $art)
                 <tr>
                     <td> <a href="{{ "/read/".$art->id}}">{{$art->title}}</a>
+                    </td>
+                    <td>
+                        <a href="{{ "/view/".$art->id}}" class="btn btn-danger">
+                        <i class="fa fa-remove"></i>
+                        </a>
+
                     </td>
                 </tr>
             @endforeach

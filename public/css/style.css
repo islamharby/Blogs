@@ -3,4 +3,11 @@
 }
 .btn-success{
     float: right;
+    margin-right: 10px;
+}
+._success{
+    padding-right: 0px !important;
+}
+.boxEdit{
+    text-align: center;
 }

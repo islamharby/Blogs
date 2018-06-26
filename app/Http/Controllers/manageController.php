@@ -37,6 +37,12 @@ class manageController extends Controller
         $ar = array('articles'=>$articles);
         return view('manage.view',$ar);
     }
+    public function remove($id)
+    {
+        $article = Article::find($id);
+        $article->delete();
+        return back();
+    }
 
     public function read(Request $request,$id)
     {
@@ -54,4 +60,27 @@ class manageController extends Controller
             $ar = array('article'=>$article);
             return view('manage.read',$ar);
     }
+   
+    public function edit(Request $request,$id)
+    {
+        if($request->isMethod('post')){
+
+            $ar= Article::find($id);
+            $ar->title=$request->input('title');
+            $ar->body=$request->input('body');
+            $ar->user_id=Auth::user()->id;
+            $ar->save();
+
+            return redirect("view");
+        }else{
+
+            $article = Article::find($id);
+            $ar = array('article'=>  $article);
+            return view('manage.edit',$ar);
+
+        }
+    }
+
+
+
 }
